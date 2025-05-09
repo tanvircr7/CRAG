@@ -1,0 +1,13 @@
+[theme]
+base="dark"
+# Main font settings
+font = "monospace"          # Base font for all text
+headingFont = "monospace"        # Font for headings
+codeFont = "monospace"       # Font for code blocks
+baseFontSize = 14
+
+# Sidebar specific fonts
+[theme.sidebar]
+font = "monospace"          # Sidebar text font
+headingFont = "monospace"        # Sidebar heading font
+codeFont = "monospace"       # Sidebar code font
