@@ -13,7 +13,7 @@ A Streamlit-based application that implements Corrective RAG (Retrieval-Augmente
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.11
 - OpenAI API Key
 - Required Python packages (see `requirements.txt`)
 
