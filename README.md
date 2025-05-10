@@ -88,4 +88,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Based on the [Corrective RAG paper](https://arxiv.org/abs/2401.15884)
-- Implementation inspired by [RAG Implementation Guide](https://github.com/tanvircr7/CRAG)
+- Implementation inspired by [Langgraph CRAG Implementation Guide]([https://github.com/tanvircr7/CRAG](https://github.com/langchain-ai/langgraph/blob/main/examples/rag/langgraph_crag.ipynb?ref=blog.langchain.dev))
