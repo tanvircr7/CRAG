@@ -414,6 +414,7 @@ def main():
                 st.markdown(f"```\n{chat['prompt']}\n```")
                 # Assistant response
                 st.markdown("**Assistant:**")
+                # st.markdown(f"```\n{chat['response']}\n```")
                 st.write(chat['response'])
                 st.markdown("---")  # Separator between messages
 
