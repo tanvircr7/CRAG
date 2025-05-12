@@ -371,7 +371,7 @@ def main():
                 if not files_uploaded:
                     st.info("Please provide: PDF file")
                 if not api_key_provided or not tavily_key_provided:
-                    st.info("Please provideX: OpenAI API key and Tavily API key then press Enter")
+                    st.info("Please provide: OpenAI API key and Tavily API key then press Enter")
 
 
     # Separator 1
