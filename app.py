@@ -1,6 +1,10 @@
 import streamlit as st
 from pathlib import Path
 import os
+# Patch SQLite with pysqlite3
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from langgraph.graph import END, StateGraph, START
 from langgraph.checkpoint.memory import MemorySaver
 from src.state.graph_state import (
