@@ -16,6 +16,7 @@ A Streamlit-based application that implements Corrective RAG (Retrieval-Augmente
 - Python 3.11
 - OpenAI API Key
 - Required Python packages (see `requirements.txt`)
+- SQLite needs to be > 3.35
 
 ## Installation
 
@@ -24,10 +25,7 @@ git clone [repository-url]
 cd [repository-name]
 
 2. Install dependencies:
-pip install -r requirements.txt
-
-3. Create a data folder:
-mkdir data
+docker compose up --build
 
 ## Usage
 
@@ -38,7 +36,7 @@ streamlit run app.py
 
 3. Upload PDF files (maximum 2)
 
-4. Enter your OpenAI API key
+4. Enter your OpenAI API key and Tavily API key
 
 5. Process PDFs and start querying!
 
@@ -48,11 +46,11 @@ streamlit run app.py
 
 - **PDF Upload Section**: Handles document upload and management
 - **Query Interface**: Process user prompts and generate responses
-- **Workflow Visualization**: Shows processing stages in real-time
+- **Workflow Visualization**: Shows processing stages 
 
 ### Processing Pipeline
 
-1. **Retrieve**: Extract relevant documents from knowledge base
+1. **Retrieve**: Extract relevant documents from the knowledge base
 2. **Query Processing**: Analyze and understand user queries
 3. **Relevance Check**: Grade document relevance to query
 4. **Web Search**: Search external sources when needed
@@ -62,16 +60,17 @@ streamlit run app.py
 
 The application uses LangGraph to create a processing pipeline:
 
-workflow = StateGraph(GraphState)
-workflow.add_node("retrieve", retrieve)
-workflow.add_node("grade_documents", grade_documents)
-workflow.add_node("generate", generate)
-workflow.add_node("transform_query", transform_query)
-workflow.add_node("web_search_node", web_search)
+    workflow = StateGraph(GraphState)
+    workflow.add_node("retrieve", retrieve)
+    workflow.add_node("grade_documents", grade_documents)
+    workflow.add_node("generate", generate)
+    workflow.add_node("transform_query", transform_query)
+    workflow.add_node("web_search_node", web_search)
 
 ## Environment Variables
 
 - `OPENAI_API_KEY`: Your OpenAI API key
+- `TAVILY_API_KEY`: Your Tavily API key
 
 ## Contributing
 
