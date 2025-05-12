@@ -253,6 +253,8 @@ def main():
         cleanup_data_folder(force=True)
     if 'api_key' not in st.session_state:
         st.session_state.api_key = ""
+    if 'tavily_key' not in st.session_state:
+        st.session_state.tavily_key = ""
     if 'graph' not in st.session_state:
         st.session_state.graph = None
     if 'graph_config' not in st.session_state:
@@ -316,17 +318,27 @@ def main():
                 type="password",
                 key="api_key_input"
             )
+
+            # Tavily Key input
+            st.session_state.tavily_key = st.text_input(
+                "Tavily API Key", 
+                value=st.session_state.tavily_key,
+                type="password",
+                key="tavily_key_input"
+            )
             
             # Process button conditions
             files_uploaded = len(st.session_state.uploaded_files) > 0
             api_key_provided = bool(st.session_state.api_key.strip())
+            tavily_key_provided = bool(st.session_state.tavily_key.strip())
             
             if st.button("Process PDFs"):
-                if files_uploaded and api_key_provided:
+                if files_uploaded and api_key_provided and tavily_key_provided:
                     with st.spinner("Processing..."):
                         try:
                             # Set up environment with API key
                             set_env_st("OPENAI_API_KEY", st.session_state.api_key.strip())
+                            set_env_st("TAVILY_API_KEY", st.session_state.tavily_key.strip())
                             
                             # Initialize graph
                             st.session_state.graph, st.session_state.graph_config, st.session_state.memory = build_graph()
@@ -347,15 +359,15 @@ def main():
                             # Show separate messages for each missing item
                             if not files_uploaded:
                                 st.info("Please provide: PDF file")
-                            if not api_key_provided:
-                                st.info("Please provide: OpenAI API key and press Enter")
+                            if not api_key_provided or not tavily_key_provided:
+                                st.info("Please provide: OpenAI API key and Tavily API key then press Enter")
             else:
                 # This shows the instructions on the first load
                 # Show separate messages for each missing item
                 if not files_uploaded:
                     st.info("Please provide: PDF file")
-                if not api_key_provided:
-                    st.info("Please provide: OpenAI API key and press Enter")
+                if not api_key_provided or not tavily_key_provided:
+                    st.info("Please provideX: OpenAI API key and Tavily API key then press Enter")
 
 
     # Separator 1
