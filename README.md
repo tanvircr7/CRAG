@@ -1,4 +1,7 @@
+
 # LangGraph PDF Processing Application
+
+![CRAG Flow](CRAG-FLOW.png)
 
 A Streamlit-based application that implements Corrective RAG (Retrieval-Augmented Generation) for processing and querying PDF documents using LangGraph.
 
@@ -33,11 +36,8 @@ docker compose up --build
 streamlit run app.py
 
 2. Open your web browser and navigate to the provided localhost URL
-
 3. Upload PDF files (maximum 2)
-
 4. Enter your OpenAI API key and Tavily API key
-
 5. Process PDFs and start querying!
 
 ## Application Structure
@@ -46,7 +46,7 @@ streamlit run app.py
 
 - **PDF Upload Section**: Handles document upload and management
 - **Query Interface**: Process user prompts and generate responses
-- **Workflow Visualization**: Shows processing stages 
+- **Workflow Visualization**: Shows processing stages
 
 ### Processing Pipeline
 
@@ -60,12 +60,12 @@ streamlit run app.py
 
 The application uses LangGraph to create a processing pipeline:
 
-    workflow = StateGraph(GraphState)
-    workflow.add_node("retrieve", retrieve)
-    workflow.add_node("grade_documents", grade_documents)
-    workflow.add_node("generate", generate)
-    workflow.add_node("transform_query", transform_query)
-    workflow.add_node("web_search_node", web_search)
+workflow = StateGraph(GraphState)
+workflow.add_node("retrieve", retrieve)
+workflow.add_node("grade_documents", grade_documents)
+workflow.add_node("generate", generate)
+workflow.add_node("transform_query", transform_query)
+workflow.add_node("web_search_node", web_search)
 
 ## Environment Variables
 
@@ -88,3 +88,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Based on the [Corrective RAG paper](https://arxiv.org/abs/2401.15884)
 - Implementation inspired by [RAG Implementation Guide](https://github.com/tanvircr7/CRAG)
+
