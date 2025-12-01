@@ -21,6 +21,7 @@ from openai import AuthenticationError, OpenAIError
 
 def build_graph():
     """Build and compile the LangGraph."""
+    # Memory updates to langgraph: Need to convert to DSPy
     memory = MemorySaver()
     workflow = StateGraph(GraphState)
     
