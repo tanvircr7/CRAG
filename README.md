@@ -7,12 +7,12 @@ A Streamlit-based application that implements Corrective RAG (Retrieval-Augmente
 
 ## Features
 
-- 📁 PDF Document Upload (up to 2 files)
-- 🔍 Intelligent Query Processing
-- 🌐 Web Search Integration
-- 💡 Context-Aware Response Generation
-- 📊 Document Relevance Grading
-- 💬 Interactive Chat History
+- PDF Document Upload (up to 2 files)
+- Intelligent Query Processing
+- Web Search Integration
+- Context-Aware Response Generation
+- Document Relevance Grading
+- Interactive Chat History
 
 ## Prerequisites
 
